@@ -1,0 +1,34 @@
+#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#_#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-
+# This project uses a virtual environment to manage package dependencies
+# Reference: https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/
+#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#_#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-
+#
+# The ~= notation ensures you get security fixes but maintain backward-
+# compatibility, if the package maintainer respects the semantic versioning,
+# which states that breaking changes should occur only in major versions.
+#~=2.2.3 means >=2.2.3, ==2.2.*
+# ~=2.2 means >=2.2, ==2.*
+#
+#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#_#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-
+#
+# This file is only used to generate the requirements with dependencies using
+# pip Installation Report, see: https://pip.pypa.io/en/stable/reference/installation-repc
+# You will also need jq. Get it here: https://jqlang.org/download/
+# Execute in python/requirements subdirectory of the project. No virtual
+# enrivonmentNote needs to be activated - this command does not install any
+# modules. Note the escaped double quotes for Command Prompt,
+#
+# Windows command prompt:
+# pip install -r requirements.in --dry-run --ignore-installed --quiet --report requirements.tmp && jq -r "(.environment | to_entries[] | \"# \(.key): \(.value)\"), (.install[] | \"\(.metadata.name)==\(.metadata.version)\")" requirements.tmp › requirements.txt && del /f /q requirements.tmp
+#
+# Mac OS Zsh:
+# pip install -r requirements.in --dry-run --ignore-installed --quiet --report requirements.tmp && jq -r '(.environment | to_entries[] | "# \(.key): \(.value)"), (.install[] | "\(.metadata.name)==\(.metadata.version)")' requirements.tmp > requirements.txt && rm -f requirements.tmp
+#
+# You can show a module's dependencies by usina: pip show ‹module name>
+#
+#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#_#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-
+
+# pandas
+# Extras: https://pandas.pydata.org/docs/getting_started/install.html#install-optional-dependencies
+pandas ~= 2.2.3
+ib_insync
