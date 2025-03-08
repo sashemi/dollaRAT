@@ -16,7 +16,7 @@ ib = IB()
 ib.disconnect()
 
 # ib.connect(clientId=1)
-ib.connect(host='127.0.0.1', port=7497, clientId=5)
+ib.connect(host='127.0.0.1', port=7497, clientId=14)
 
 # init dataframe
 df = pd.DataFrame(columns=['date', 'last', 'vol'])
